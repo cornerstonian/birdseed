@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+- 2.2.2
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.yml.travis config/database.yml
+deploy:
+  provider: heroku
+  api_key:
+    secure: cLpqK6BD457WJZZJ9Vc7hPIMwVyQtpErxiHZcRovGWweqYsspjRvAeTN1pgX8GgcUuczyzh7fhhkH4oS97QVa2FHDrdfML8wuKbIyGyWcWKeY1eMTZQJ4E9Mr51k02nP4EAr/fqIOjCV0ILI9tmV96+NpEvsFu3v8Om7n+/UnySwlLQOtD76ZjAVswDULZCQLx+GSMNpFk9hBpqi36RU+N8t3acBw+g/ydEBh+2m4p2u2NcOGpI36Fgy52ENVQur9qtcQsC5+c5GXLwpSrrPnPdOgIfRv1Xq6zeUbw4Og6E2frD5vsO0wpPwl8om7MjaNNl1q0177CduTxlb/NWvKoy0dIBJBX/t+cPWs4nGsr4thgfEYj5sYEoRYmTHoaVDQ7js8nmxMX+3TGLp9OIoshO8hjQTXXtvuXuo0TIt2r+Ps0rdG5hwp4m0zZ1LuVi8PZiUtW4J4KFQfgdq+oZeCd6awuTxLR/DJI102nI34sIgTX0udQGiYLRrv8J/I2N3+W/a51x3CWWtmLS40PtXZxhczaEylSzaSl4cUIJYDT9uThjIF83Jk8Aer+k3/KM8ef14warhjHNkXR6kL+hm2d+GpmzFgYmuEnGW8qomfntvM5F9puR9YkCnYslQta+z497+t9v5SzwmJb7S+5uLivKm2d7jPbKVTXrqsX44I9o=
+  app: pristine-sequoia-28847
+  on:
+    repo: cornerstonian/birdseed
