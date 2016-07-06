@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @post.user = @current_user
 
     if @post.save
-      redirect_to root_path, notice: "Quack!"
+      redirect_to root_path, notice: "Your post has been sent!"
     else
       render :new
     end

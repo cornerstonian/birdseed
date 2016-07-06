@@ -12,8 +12,12 @@ Rails.application.routes.draw do
   get 'registration' => 'users#new', as: :new_user
   post 'registration' => 'users#create', as: :create_user
 
+
   get 'posts' => 'timeline#index', as: :timeline
   get 'posts' => 'posts#index', as: :posts
+  post 'posts' => 'posts#new', as: :create_post
+
+
 
   get 'following' => 'users#following', as: :following
   post 'follow/:user_id' => 'users#follow', as: :follow

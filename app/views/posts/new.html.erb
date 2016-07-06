@@ -1,6 +1,4 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
-
+<h1>New Post</h1>
 
 <%= form_for @post, url: create_post_path do |f| %>
 <div class="form-group">
@@ -9,5 +7,6 @@
 </div>
 
   <div class="form-group">
-    <%= f.submit "Post!", btn btn-lg btn-primary %>
+    <%= f.submit "Post!", class: "btn btn-lg btn-primary" %>
   </div>
+  <% end %>
