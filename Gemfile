@@ -47,4 +47,6 @@ group :development do
 end
 
 gem 'minitest-rails'
-gem 'bootstrap'
+gem 'acts_as_follower'
+gem 'bootstrap-sass'
+gem 'faker'

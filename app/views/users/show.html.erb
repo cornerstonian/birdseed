@@ -1,0 +1,20 @@
+  <div class="list-group">
+    <h3>Posts By: <%= @user.username %></h3>
+
+  <p>
+		<%  case
+        when @current_user.following?(@user) == true %>
+    <%= link_to "Unfollow", unfollow_path(user_id: @user.id), method: :post, class: "btn btn-primary" %>
+		<% when @current_user.following?(@user) == false %>
+    <%= link_to "Follow", follow_path(user_id: @user.id), method: :post, class: "btn btn-primary" %>
+		<% end %>
+	</p>
+
+
+  <div class="list-group">
+      <% @user.posts.each do |post| %>
+        <div class="list-group-item">
+          <%= link_to post.body, posts_path(id: post.id) %>
+        </div>
+      <% end %>
+  </div>
